@@ -1,0 +1,42 @@
+{
+    "manifest_version": 3,
+    "name": "ChatGPT → Notion Saver",
+    "version": "0.1.0",
+    "description": "원클릭 저장 & 하이라이트 모드로 ChatGPT 답변을 Notion DB에 저장",
+    "permissions": [
+        "storage",
+        "activeTab",
+        "scripting",
+        "contextMenus"
+    ],
+    "host_permissions": [
+        "https://api.notion.com/*"
+    ],
+    "background": {
+        "service_worker": "scripts/background.js"
+    },
+    "action": {
+        "default_title": "Save to Notion",
+        "default_popup": "popup.html"
+    },
+    "options_page": "options.html",
+    "content_scripts": [
+        {
+            "matches": [
+                "https://chat.openai.com/*",
+                "https://chatgpt.com/*"
+            ],
+            "js": ["scripts/content.js"],
+            "run_at": "document_idle"
+        }
+    ],
+    "commands": {
+        "save_latest_answer": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+S",
+                "mac": "Command+Shift+S"
+            },
+            "description": "Save latest ChatGPT answer to Notion"
+        }
+    }
+}

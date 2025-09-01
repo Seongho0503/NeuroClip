@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Notion Saver Options</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    label { display: block; margin: 10px 0 5px; }
+    input { width: 100%; padding: 6px; }
+    button { margin-top: 15px; padding: 8px 12px; }
+  </style>
+</head>
+<body>
+  <h1>Notion Saver Settings</h1>
+  <label for="token">Notion Integration Token</label>
+  <input id="token" type="text" placeholder="secret_xxx..." />
+
+  <label for="database">Database ID</label>
+  <input id="database" type="text" placeholder="xxxxxxxxxxxxxxxxxxxx" />
+
+  <button id="save">Save</button>
+  <p id="status"></p>
+
+  <script src="scripts/options.js"></script>
+</body>
+</html>
